@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:manuals.plus)",
+      "WebFetch(domain:www.samsung.com)",
+      "WebFetch(domain:assetserver.net)",
+      "Bash(pip install:*)",
+      "Bash(python detect_ddc.py)",
+      "Bash(python -c \"import monitorcontrol; print\\(monitorcontrol.__file__\\)\")",
+      "Bash(\"C:/Users/the_m/AppData/Local/Programs/Python/Python310/python.exe\" -c \"import monitorcontrol; print\\('OK'\\)\" 2>&1)",
+      "Bash(\"C:/Users/the_m/AppData/Local/Programs/Python/Python310/python.exe\" detect_ddc.py)",
+      "Bash(\"C:/Users/the_m/AppData/Local/Programs/Python/Python310/python.exe\" -c \"\nfrom monitorcontrol import get_monitors\nmonitors = get_monitors\\(\\)\nwith monitors[0]:\n    raw = monitors[0].get_input_source\\(\\)\n    print\\(type\\(raw\\), raw\\)\n\" 2>&1)",
+      "Bash(C:/Users/the_m/AppData/Local/Programs/Python/Python310/python.exe -c \"import tkinter; print\\('ok'\\)\")",
+      "Bash(C:/Users/the_m/AppData/Local/Programs/Python/Python310/python.exe -c \"import monitorcontrol; help\\(monitorcontrol.get_monitors\\)\")",
+      "Bash(\"C:/Users/the_m/AppData/Local/Programs/Python/Python310/python.exe\" -c \"import pystray; print\\('ok'\\)\" 2>&1)",
+      "Bash(\"C:/Users/the_m/AppData/Local/Programs/Python/Python310/python.exe\" -m pip install pystray pillow 2>&1)",
+      "Bash(\"C:/Users/the_m/AppData/Local/Programs/Python/Python310/python.exe\" -c \"\nfrom PIL import Image, ImageDraw\nimport pystray\n\ndef create_icon\\(\\):\n    img = Image.new\\('RGBA', \\(64, 64\\), \\(0, 0, 0, 0\\)\\)\n    draw = ImageDraw.Draw\\(img\\)\n    draw.rounded_rectangle\\([6, 8, 58, 44], radius=4, fill='#2196F3', outline='#1565C0', width=2\\)\n    return img\n\nicon = pystray.Icon\\('test', create_icon\\(\\), 'Test'\\)\nprint\\('Icon created OK'\\)\nprint\\('Backend:', pystray._util.backend.__name__ if hasattr\\(pystray._util, 'backend'\\) else 'unknown'\\)\n\" 2>&1)",
+      "Bash(\"C:/Users/the_m/AppData/Local/Programs/Python/Python310/python.exe\" -c \"\nimport tkinter as tk\nimport threading\nimport pystray\nfrom PIL import Image, ImageDraw\n\ndef create_icon\\(\\):\n    img = Image.new\\('RGBA', \\(64, 64\\), \\(0, 0, 0, 0\\)\\)\n    draw = ImageDraw.Draw\\(img\\)\n    draw.rectangle\\([6, 8, 58, 44], fill='blue'\\)\n    return img\n\nroot = tk.Tk\\(\\)\nroot.title\\('Test Tray'\\)\nroot.geometry\\('200x100'\\)\n\ndef minimize\\(\\):\n    root.withdraw\\(\\)\n    icon = pystray.Icon\\('test', create_icon\\(\\), 'Test', menu=pystray.Menu\\(\n        pystray.MenuItem\\('Abrir', lambda i, item: \\(root.after\\(0, root.deiconify\\), i.stop\\(\\)\\)\\),\n        pystray.MenuItem\\('Salir', lambda i, item: \\(i.stop\\(\\), root.after\\(0, root.destroy\\)\\)\\),\n    \\)\\)\n    threading.Thread\\(target=icon.run, daemon=True\\).start\\(\\)\n\nroot.protocol\\('WM_DELETE_WINDOW', minimize\\)\nprint\\('Window created, close it to test tray...'\\)\nroot.mainloop\\(\\)\nprint\\('Done'\\)\n\" 2>&1)",
+      "Bash(taskkill //F //IM python.exe)",
+      "Bash(\"C:/Users/the_m/AppData/Local/Programs/Python/Python310/python.exe\" -m pip install pyinstaller)",
+      "Bash(\"C:/Users/the_m/AppData/Local/Programs/Python/Python310/python.exe\" -m PyInstaller --onefile --windowed --name \"ScreenControl\" --icon icon.ico --add-data \"icon.ico;.\" screen_control.py)",
+      "Bash(\"C:/Users/the_m/AppData/Local/Programs/Python/Python310/python.exe\" \"C:/Users/the_m/Documents/Proyectos/screen-control/install_startup_windows.py\" 2>&1)",
+      "Bash(taskkill //F //IM ScreenControl.exe)"
+    ]
+  }
+}
