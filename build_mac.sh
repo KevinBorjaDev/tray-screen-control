@@ -3,8 +3,19 @@
 
 set -e
 
+VENV_DIR=".venv"
+
+# Crear entorno virtual si no existe
+if [ ! -d "$VENV_DIR" ]; then
+    echo "=== Creando entorno virtual ==="
+    python3 -m venv "$VENV_DIR"
+fi
+
+# Activar entorno virtual
+source "$VENV_DIR/bin/activate"
+
 echo "=== Instalando dependencias ==="
-pip3 install monitorcontrol Pillow pystray pyinstaller
+pip install monitorcontrol Pillow pystray pyinstaller
 
 echo "=== Generando ScreenControl.app ==="
 pyinstaller --onefile --windowed \
